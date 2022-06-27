@@ -33,21 +33,21 @@ recognition.onresult = function(event) {
     //diagnostic.textContent = 'Result received: ' + voiceCommand + '.';
     console.log("voice command " + voiceCommand);
     if(voiceCommand.includes("Alex") || voiceCommand.includes("alex")){
-     if(voiceCommand.includes("start")) {
+     if(voiceCommand.includes("start") || voiceCommand.includes("Start")) {
         factory.setAttribute('animation-mixer', {timeScale: 1});
         console.log("factory starts...");
      }
-        else if(voiceCommand.includes("stop")) {
+        else if(voiceCommand.includes("stop") || voiceCommand.includes("Stop")) {
         factory.setAttribute('animation-mixer', {timeScale: 0});
         console.log("factory stops...");
         }
 
-        else if(voiceCommand.includes("schneller")) {
+        else if(voiceCommand.includes("schneller") || voiceCommand.includes("Schneller")) {
         factory.setAttribute('animation-mixer', {timeScale: 1.5});
         console.log("factory schneller...");
         }
 
-        else if(voiceCommand.includes("langsamer")) {
+        else if(voiceCommand.includes("langsamer") || voiceCommand.includes("Langsamer")) {
         factory.setAttribute('animation-mixer', {timeScale: 0.5});
         console.log("factory langsamer...");
         }
