@@ -192,24 +192,8 @@
 
     <a-entity hide-on-enter-ar position="0 -0.2 0" environment="lighting:none;shadow:true;preset: osiris;"></a-entity>
 		<a-entity rotation="0 -50 0" position="0 0 0" animation-mixer loop="once" id="factory-entity" hide-on-enter-ar>
-      <a-box 
-        position="-5.148 -0.1 -0.355"
-        visible="false"
-        geometry="width:33.67;height:0.2;depth:19.06"
-        physx-body="type: static;"
-        physx-restitution="1.5">
-      </a-box>
       <!-- Animation from animation mixer -->
-      <a-animation
-        attribute="rotation"
-        dur="5000"
-        fill="forwards"
-        to="0 360 0"
-        repeat="indefinite"
-        easing="linear"
-        id="factory-animation">
-      </a-animation>
-
+      <a-animation id="factory-animation" begin="factory-entity-enter-ar" attribute="rotation" duration="3000" to="0 0 0" easing="linear"></a-animation>
    
       
       <!-- Button test -->

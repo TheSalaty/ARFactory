@@ -52,12 +52,6 @@ recognition.onresult = function(event) {
         console.log("factory langsamer...");
         }
 
-        //change color
-        else if(voiceCommand.includes("farbe") || voiceCommand.includes("Farbe")) {
-        factory.setAttribute('material', {color: '#ff0000'});
-        console.log("factory color changed...");
-        }
-
         else {
         console.log("Alex says: unsupported voice command");
     }
