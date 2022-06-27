@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var grammar = '#JSGF V1.0; grammar words; public <words> = ivan | start | stop | schneller | langsamer;';
+var grammar = '#JSGF V1.0; grammar words; public <words> = ivan | start | stop | schneller | langsamer | farbe';
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
@@ -51,7 +51,13 @@ recognition.onresult = function(event) {
         factory.setAttribute('animation-mixer', {timeScale: 0.5});
         console.log("factory langsamer...");
         }
-        
+
+        //change color
+        else if(voiceCommand.includes("farbe") || voiceCommand.includes("Farbe")) {
+        factory.setAttribute('material', {color: '#ff0000'});
+        console.log("factory color changed...");
+        }
+
         else {
         console.log("Alex says: unsupported voice command");
     }
