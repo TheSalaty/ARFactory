@@ -14,7 +14,7 @@ recognition.maxAlternatives = 1;
 var i = 0;
 
 //var diagnostic = document.querySelector('.output');
-var factory = document.getElementById("building");
+var factory = document.getElementById("building-glb");
 
     recognition.start();
     console.log('Ready to receive a command.');
