@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var grammar = '#JSGF V1.0; grammar words; public <words> = ivan | start | stop | schneller | langsamer | farbe';
+var grammar = '#JSGF V1.0; grammar words; public <words> = ivan | start | stop | schneller | langsamer | größer | kleiner';
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
@@ -50,6 +50,18 @@ recognition.onresult = function(event) {
         else if(voiceCommand.includes("langsamer") || voiceCommand.includes("Langsamer")) {
         factory.setAttribute('animation-mixer', {timeScale: 0.5});
         console.log("factory langsamer...");
+        }
+
+        else if(voiceCommand.includes("größer") || voiceCommand.includes("Größer")) {
+        //increase size glb object
+        factory.setAttribute('scale', {x: 1.5, y: 1.5, z: 1.5});
+        console.log("factory größer...");
+        }
+
+        else if(voiceCommand.includes("kleiner") || voiceCommand.includes("Kleiner")) {
+        //decrease size glb object
+        factory.setAttribute('scale', {x: 0.5, y: 0.5, z: 0.5});
+        console.log("factory kleiner...");
         }
 
         else {
