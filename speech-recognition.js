@@ -14,7 +14,7 @@ recognition.maxAlternatives = 1;
 var i = 0;
 
 //var diagnostic = document.querySelector('.output');
-var factory = document.getElementById("factory-entity");
+var factory = document.getElementById("building");
 
     recognition.start();
     console.log('Ready to receive a command.');
@@ -69,8 +69,6 @@ recognition.onresult = function(event) {
     console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
-
-// run function of recognition activation word
 
 recognition.onnomatch = function(event) {
     //diagnostic.textContent = 'I didnt recognise that color.';
