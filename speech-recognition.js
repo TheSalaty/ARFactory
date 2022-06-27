@@ -38,34 +38,34 @@ recognition.onresult = function(event) {
         console.log("factory starts...");
      }
         else if(voiceCommand.includes("stop") || voiceCommand.includes("Stop")) {
-        factory.setAttribute('animation-mixer', {timeScale: 0});
-        console.log("factory stops...");
+            factory.setAttribute('animation-mixer', {timeScale: 0});
+            console.log("factory stops...");
         }
 
         else if(voiceCommand.includes("schneller") || voiceCommand.includes("Schneller")) {
-        factory.setAttribute('animation-mixer', {timeScale: 1.5});
-        console.log("factory schneller...");
+            factory.setAttribute('animation-mixer', {timeScale: 1.5});
+            console.log("factory schneller...");
         }
 
         else if(voiceCommand.includes("langsamer") || voiceCommand.includes("Langsamer")) {
-        factory.setAttribute('animation-mixer', {timeScale: 0.5});
-        console.log("factory langsamer...");
+            factory.setAttribute('animation-mixer', {timeScale: 0.5});
+            console.log("factory langsamer...");
         }
 
         else if(voiceCommand.includes("größer") || voiceCommand.includes("Größer")) {
         //increase size glb object
-        factory.setAttribute('scale', {x: 1.5, y: 1.5, z: 1.5});
-        console.log("factory größer...");
+            factory.setAttribute('scale', {x: 1.5, y: 1.5, z: 1.5});
+            console.log("factory größer...");
         }
 
         else if(voiceCommand.includes("kleiner") || voiceCommand.includes("Kleiner")) {
         //decrease size glb object
-        factory.setAttribute('scale', {x: 0.5, y: 0.5, z: 0.5});
-        console.log("factory kleiner...");
+            factory.setAttribute('scale', {x: 0.5, y: 0.5, z: 0.5});
+            console.log("factory kleiner...");
         }
 
         else {
-        console.log("Alex says: unsupported voice command");
+            console.log("Alex says: unsupported voice command");
     }
     //reset transcript
     voiceCommand = "";
