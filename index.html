@@ -82,6 +82,7 @@
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/handy-controls.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/magnet-helpers.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-htmlmesh@1.0.1/build/aframe-html.min.js"></script>
+
   <script src="ar-shadow-helper.js"></script>
   <script src="ar-cursor.js"></script>
   <script src="simple-navmesh-constraint.js"></script>
@@ -178,17 +179,19 @@
       </a-entity>
     </a-entity>
     
-    <a-entity id="my-ar-objects" position="-6 0 1">
-
+    <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
+      <a-gltf-model id="factory" src="assets/Modellfabrik.glb" ></a-gltf-model>
     </a-entity>
 
     <!-- This plane is only visible in AR and follows the given target to provide it with shadows.-->
 		<a-light id="dirlight" shadow-camera-automatic="[ar-shadow-helper]" intensity="0.8" light="castShadow:true;type:directional" position="0 3 -6"></a-light>
     <a-entity ar-shadow-helper="target:#my-ar-objects;light:#dirlight;" visible="false">
-      <a-plane rotation="-90 0 0" shadow="cast:false;receive:true;" position="0 0.01 0" material="shader:shadow; depthWrite:false; opacity:0.9;"></a-plane>
+      <a-plane rotation="-90 0 0" shadow="cast:false;receive:true;" position="0 0.01 0" material="shader:shadow; depthWrite:false; opacity:1;"></a-plane>
     </a-entity>
 
-    <a-entity hide-on-enter-ar position="0 -0.2 0" environment="lighting:none;shadow:true;preset: osiris;"></a-entity>
+    <!-- cool background -->
+
+    <a-entity hide-on-enter-ar position="0 -0.2 0" environment="lighting:none;shadow:true;preset: "></a-entity> 
 		<a-entity rotation="0 -50 0" position="0 0 0" hide-on-enter-ar>
       <a-box 
         position="-5.148 -0.1 -0.355"
