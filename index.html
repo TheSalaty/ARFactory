@@ -65,13 +65,13 @@
 <html>
 
 <head>
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@0d23f9b/dist/aframe-master.min.js"></script>
   <script>
     // WebXR requires https: to work so ensure redirected if needed.
     if (location.hostname !== 'localhost' && window.location.protocol === 'http:') window.location.protocol = 'https:';
   </script>
 
   <!-- the AFrame library and 3rd party components -->
-	<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@0d23f9b/dist/aframe-master.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
   <script>window.module = {exports:{}}</script><!-- Dirty hack to get the sphere collider loading :-( -->
 	<script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@master/src/misc/sphere-collider.js"></script>
@@ -82,12 +82,15 @@
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/handy-controls.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/magnet-helpers.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-htmlmesh@1.0.1/build/aframe-html.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js" ></script>
 
-  <script src="ar-shadow-helper.js"></script>
+  <!-- <script src="ar-shadow-helper.js"></script>
   <script src="ar-cursor.js"></script>
   <script src="simple-navmesh-constraint.js"></script>
   <script src="model-utils.js"></script>
-  <script src="speech-recognition.js" defer></script>
+  <script src="speech-recognition.js" defer></script> -->
+
+  <script src="animation-mixer.js" ></script>
 
   
   <!-- Our custom behaviour -->
@@ -131,7 +134,7 @@
       </a-entity>
       
       <!-- Hand tracking -->
-      <a-entity handy-controls="right:#right-gltf;materialOverride:right;" material="color:gold;metalness:1;roughness:0;">
+      <!-- <a-entity handy-controls="right:#right-gltf;materialOverride:right;" material="color:gold;metalness:1;roughness:0;"> -->
         
         <!-- For screen space inputs like mobile AR -->
         <a-torus radius="0.008" radius-tubular="0.001" material="shader:flat;color:blue" data-none="screen-0"></a-torus>
@@ -181,9 +184,12 @@
       </a-entity>
     </a-entity>
     
-    <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
-      <a-gltf-model id="factory" src="assets/Modellfabrik.glb" ></a-gltf-model>
-    </a-entity>
+    <a-entity gltf-model="#building-glb" position="-6 0 1" scale= "1 1 1" rotation="0 -50 0" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-entity>
+
+
+    <!-- <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
+      <a-gltf-model id="factory" src="assets/Modellfabrik.glb" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-gltf-model>
+    </a-entity> -->
 
     <!-- This plane is only visible in AR and follows the given target to provide it with shadows.-->
 		<a-light id="dirlight" shadow-camera-automatic="[ar-shadow-helper]" intensity="0.8" light="castShadow:true;type:directional" position="0 3 -6"></a-light>
@@ -196,17 +202,18 @@
       
       <!-- Button test -->
            
-      <a-gltf-model id="clock" shadow="receive:true;" src="#clock-gltf" position="-5 0 1.8" rotation="0 51 0" physx-body-from-model="type:dynamic;mass:15;"></a-gltf-model>
-      <a-gltf-model class="navmesh" src="#navmesh-glb" visible="false"></a-gltf-model>
+      <!-- <a-gltf-model id="clock" shadow="receive:true;" src="#clock-gltf" position="-5 0 1.8" rotation="0 51 0" physx-body-from-model="type:dynamic;mass:15;"></a-gltf-model>
+      <a-gltf-model class="navmesh" src="#navmesh-glb" visible="false"></a-gltf-model> -->
       <a-gltf-model src="#building-glb"
         id="building"
         depthwrite="true"
         window-replace="Glass"
         no-tonemapping="Light"
         shadow="cast:false;receive:true;"
-      ></a-gltf-model>
-    </a-entity>
-
+        animation-mixer="clip:*; loop:repeat;  crossFadeDuration: 1"
+        ></a-gltf-model>
+      </a-entity>
+      
 
 	</a-scene>
 
