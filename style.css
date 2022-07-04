@@ -153,7 +153,7 @@ to this section's matching END comment to see page-specific styles.
   }
   
   /* Button - Add it from the README instructions */
-  button,
+  /* button,
   input {
     font-family: inherit;
     font-size: 100%;
@@ -163,11 +163,12 @@ to this section's matching END comment to see page-specific styles.
     border-radius: 4px;
     padding: 0.5rem 1rem;
     transition: 500ms;
-  }
+  } */
   
   /* Subheading */
   h2 {
     color: #2800FF;
+    z-index: 100;
   }
   
   /* Interactive image */
@@ -183,3 +184,24 @@ to this section's matching END comment to see page-specific styles.
     transform: translateY(5px);
   }
   
+
+  .testButton {
+    /* position: absolute; */
+    z-index: 90;
+  }
+
+  .base {
+    background-color: #333;
+    color: #fafafa;
+    border-radius: 0;
+    font: 10px monospace;
+    left: 5px;
+    line-height: 1em;
+    opacity: .85;
+    overflow: hidden;
+    padding: 10px;
+    position: fixed;
+    top: 5px;
+    width: 300px;
+    z-index: 10000;
+  }
