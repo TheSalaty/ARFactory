@@ -1,4 +1,4 @@
-AFRAME.registerComponent('show-diagram', {
+AFRAME.registerComponent('showdiagram', {
   init: function(){
     let el = this.el;
     let hideButton = document.querySelector('#hide');

@@ -34,7 +34,16 @@
   <!-- <script src="micro.js"></script> -->
   <script>
     function showdiagram(){
-      document.querySelector('a-image').setAttribute('visible', 'true');
+      var id=document.getElementsByName("Diagramm")[0].id;
+      if(id==1){
+        document.getElementById('block').style.visibility = 'visible'
+        document.getElementsByName("Diagramm")[0].id=0;
+      }
+      else{
+        document.getElementById('block').style.visibility = 'hidden'
+        document.getElementsByName("Diagramm")[0].id=1;
+      }
+     
     }
   </script>
 
@@ -189,13 +198,49 @@ position: fixed;
 z-index: 10000;
 ">
 
-    <button onclick="showdiagram()" style="cursor: pointer;padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;border-color: black;    border-radius: 10px; border-width: 3px; background-color: #FFFFFF; color:#262626; font-weight: 700; font-size: 18px;">
-      Diagramm
+    <button name='Diagramm' id='1' onclick="showdiagram()" style="cursor: pointer;padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;border-color: black;    border-radius: 10px; border-width: 3px; background-color: #FFFFFF; color:#262626; font-weight: 700; font-size: 18px;">
+      Fortschritt
     </button>
     <button onclick="activateMicro()" style="cursor: pointer;padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;border-color: black;    border-radius: 10px; border-width: 3px; background-color: #FFFFFF; color:#262626; font-weight: 700; font-size: 18px;">
       Voice
     </button>
   </div>
+
+  <div style="
+  left: 1rem;
+  top: 1rem;
+  opacity: .85;
+  overflow: hidden;
+  position: fixed;
+  z-index: 10000;
+  ">
+   <div id="block"></div>
+</div>
+
+<style>
+  #block  { 
+  visibility: hidden;
+    width:600px; height:50px;
+  box-sizing: border-box;   
+  background:#373f43 ; 
+  margin:10px auto; 
+  float:right;
+   border:solid 2px #fff; 
+    
+    letter-spacing: 1px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 0 #F63A19;
+	/* -webkit-transition: all ease 3s; */
+	/* -moz-transition: all ease 3s; */
+	transition: all linear 5s;
+}
+/* #block:hover{
+    box-shadow: inset 600px 0 0 0 #0BDE63; color:white;  
+    } */
+.blockAnimation{
+    box-shadow: inset 600px 0 0 0 #0BDE63; color:white;  
+    }
+</style>
 
   <script>
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
@@ -238,10 +283,12 @@ function activateMicro (){
         if(voiceCommand.includes("start") || voiceCommand.includes("Start")) {
             factory.setAttribute('animation-mixer', {timeScale: 1});
             console.log("factory starts...");
+            document.getElementById("block").classList.add("blockAnimation")
         }
             else if(voiceCommand.includes("stop") || voiceCommand.includes("Stop")) {
                 factory.setAttribute('animation-mixer', {timeScale: 0});
                 console.log("factory stops...");
+                document.getElementById("block").className = "";
             }
 
             else if(voiceCommand.includes("schneller") || voiceCommand.includes("Schneller")) {
