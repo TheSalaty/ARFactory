@@ -131,11 +131,22 @@
         position="0 1.65 0"
       ></a-entity>
       
+    <!-- html button to start voice recognition fixed in the bottom left of the screen -->
+    <a-entity id="voice-recognition-button"
+      position="-1.5 0.5 -1"
+      geometry="primitive: plane; width: 1.5; height: 0.5"
+      material="color: #fff; opacity: 0.5"
+      text="value: Start voice recognition; align: center; width: 1.5; height: 0.5"
+      onclick="startVoiceRecognition()"
+    ></a-entity>
+    
+
+
       <a-entity xr-follow>
      
       </a-entity>
       
-      <!-- Hand tracking -->
+      
       <!-- <a-entity handy-controls="right:#right-gltf;materialOverride:right;" material="color:gold;metalness:1;roughness:0;"> -->
         
         <!-- For screen space inputs like mobile AR -->
