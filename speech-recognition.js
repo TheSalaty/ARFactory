@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var grammar = '#JSGF V1.0; grammar words; public <words> = ivan | start | stop | schneller | langsamer | größer | kleiner';
+var grammar = '#JSGF V1.0; grammar words; public <words> = alex | start | stop | schneller | langsamer | größer | kleiner';
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
