@@ -92,7 +92,6 @@
 
   <script src="animation-mixer.js" ></script>
   <script src="speech-recognition.js" defer></script>
-  <script src="show-diagram.js" ></script>
 
   
   <!-- Our custom behaviour -->
@@ -131,8 +130,13 @@
         position="0 1.65 0"
       ></a-entity>
       
-    <!-- html button to start voice recognition fixed in the bottom left of the screen -->
-    <a href="#" id="start-voice-recognition" style="position: fixed; bottom: 5px; left: 5px; z-index: 999;"></a>
+    <!-- html button to start voice recognition fixed in the bottom middle of the screen -->
+    <a-entity id="voice-recognition-button"
+      position="0 0.6 -0.9"
+      geometry="primitive: plane; width: 1.5; height: 0.5"
+      material="color: #fff; opacity: 0.5"
+      text="value: Start voice recognition; align: center; width: 1.5; height: 0.5"
+    ></a-entity>
     
 
 
@@ -191,11 +195,8 @@
       </a-entity>
     </a-entity>
     
-    <a-entity id="factory-entity" gltf-model="#building-glb" position="-5 0 -2" scale= "1 1 1" rotation="0 50 0" animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
+    <a-entity id="factory-entity" gltf-model="#building-glb" position="-6 0 1" scale= "1 1 1" rotation="0 -50 0" animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
 
-
-    <a-box class="button" position="0 5 -6" color="red" depth="0.1" height="1" width="3" show-diagram></a-box>
-    <a-image src="assets/elemente-eines-diagramms-486904-2.jpg" position="0 2d -5" visible="false"></a-image>
 
     <!-- <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
       <a-gltf-model id="factory" src="assets/Modellfabrik.glb" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-gltf-model>
