@@ -131,7 +131,13 @@
       ></a-entity>
       
     <!-- html button to start voice recognition fixed in the bottom left of the screen -->
-    <a href="#" id="start-voice-recognition" style="position: fixed; bottom: 5px; left: 5px; z-index: 999;"></a>
+    <a-entity id="voice-recognition-button"
+      position="-1.5 0.5 -1"
+      geometry="primitive: plane; width: 1.5; height: 0.5"
+      material="color: #fff; opacity: 0.5"
+      text="value: Start voice recognition; align: center; width: 1.5; height: 0.5"
+      onclick="startVoiceRecognition()"
+    ></a-entity>
     
 
 
