@@ -43,12 +43,12 @@ recognition.onresult = function(event) {
         }
 
         else if(voiceCommand.includes("schneller") || voiceCommand.includes("Schneller")) {
-            factory.setAttribute('animation-mixer', {timeScale: 1.5});
+            factory.setAttribute('animation-mixer', {timeScale: timeScale + 0.5});
             console.log("factory schneller...");
         }
 
         else if(voiceCommand.includes("langsamer") || voiceCommand.includes("Langsamer")) {
-            factory.setAttribute('animation-mixer', {timeScale: 0.5});
+            factory.setAttribute('animation-mixer', {timeScale: timeScale - 0.5});
             console.log("factory langsamer...");
         }
 
@@ -77,7 +77,7 @@ recognition.onresult = function(event) {
 
 
 recognition.onnomatch = function(event) {
-    //diagnostic.textContent = 'I didnt recognise that.';
+    //diagnostic.textContent = 'I didnt recognise thats.';
 }
 
 recognition.onerror = function(event) {
