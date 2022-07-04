@@ -16,7 +16,7 @@ var i = 0;
 //var diagnostic = document.querySelector('.output');
 var factory = document.getElementById("factory-entity");
 // Start the recognition process - when a-frame buton is clicked
-document.getElementById('start-voice-recognition').addEventListener('click', function() {
+document.getElementById('activateMicro').addEventListener('click', function() {
     recognition.start();
     console.log('Ready to receive a command.');
 
