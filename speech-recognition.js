@@ -15,7 +15,8 @@ var i = 0;
 
 //var diagnostic = document.querySelector('.output');
 var factory = document.getElementById("factory-entity");
-
+// Start the recognition process - when a-frame buton is clicked
+document.getElementById('start-voice-recognition').addEventListener('click', function() {
     recognition.start();
     console.log('Ready to receive a command.');
 
@@ -71,15 +72,10 @@ recognition.onresult = function(event) {
     voiceCommand = "";
     }
 
-    //factory.setAttribute('voiceCommand', voiceCommand);
-    console.log('Confidence: ' + event.results[0][0].confidence);
-}
+        //factory.setAttribute('voiceCommand', voiceCommand);
+        console.log('Confidence: ' + event.results[0][0].confidence);
+    }
+});
 
-
-recognition.onnomatch = function(event) {
-    //diagnostic.textContent = 'I didnt recognise thats.';
-}
-
-recognition.onerror = function(event) {
-    //diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
-}
+recognition.stop();
+voiceCommand = "";
