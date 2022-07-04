@@ -92,6 +92,7 @@
 
   <script src="animation-mixer.js" ></script>
   <script src="speech-recognition.js" defer></script>
+  <script src="show-diagram.js" ></script>
 
   
   <!-- Our custom behaviour -->
@@ -185,8 +186,11 @@
       </a-entity>
     </a-entity>
     
-    <a-entity id="factory-entity" gltf-model="#building-glb" position="-6 0 1" scale= "1 1 1" rotation="0 -50 0" animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
+    <a-entity id="factory-entity" gltf-model="#building-glb" position="-5 0 -2" scale= "1 1 1" rotation="0 50 0" animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
 
+
+    <a-box class="button" position="0 5 -6" color="red" depth="0.1" height="1" width="3" show-diagram></a-box>
+    <a-image src="assets/elemente-eines-diagramms-486904-2.jpg" position="0 2d -5" visible="false"></a-image>
 
     <!-- <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
       <a-gltf-model id="factory" src="assets/Modellfabrik.glb" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-gltf-model>
