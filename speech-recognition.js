@@ -77,7 +77,7 @@ recognition.onresult = function(event) {
 
 
 recognition.onnomatch = function(event) {
-    //diagnostic.textContent = 'I didnt recognise that color.';
+    //diagnostic.textContent = 'I didnt recognise that.';
 }
 
 recognition.onerror = function(event) {
