@@ -257,16 +257,16 @@ recognition.lang = 'de-DE';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 var i = 0;
+var voiceCommand;
 
 //var diagnostic = document.querySelector('.output');
 var factory = document.getElementById("factory-entity");
 // Start the recognition process - when a-frame buton is clicked
 
 function activateMicro (){
-  //listeen for the start of the speech for 5 seconds
+  //listen for the start of the speech for 5 seconds
   recognition.start();
   console.log("Started");
-  setTimeout(function() {
     console.log('Ready to receive a command.');
 
     recognition.onresult = function(event) {
@@ -278,7 +278,7 @@ function activateMicro (){
         // These also have getters so they can be accessed like arrays.
         // The second [0] returns the SpeechRecognitionAlternative at position 0.
         // We then return the transcript property of the SpeechRecognitionAlternative object
-        var voiceCommand = event.results[i][0].transcript;
+        voiceCommand = event.results[i][0].transcript;
         i++;
         //diagnostic.textContent = 'Result received: ' + voiceCommand + '.';
         console.log("voice command " + voiceCommand);
@@ -295,12 +295,12 @@ function activateMicro (){
             }
 
             else if(voiceCommand.includes("schneller") || voiceCommand.includes("Schneller")) {
-                factory.setAttribute('animation-mixer', {timeScale: timeScale + 0.5});
+                factory.setAttribute('animation-mixer', {timeScale: 1.5});
                 console.log("factory schneller...");
             }
 
             else if(voiceCommand.includes("langsamer") || voiceCommand.includes("Langsamer")) {
-                factory.setAttribute('animation-mixer', {timeScale: timeScale - 0.5});
+                factory.setAttribute('animation-mixer', {timeScale: 0.5});
                 console.log("factory langsamer...");
             }
 
@@ -326,12 +326,15 @@ function activateMicro (){
             //factory.setAttribute('voiceCommand', voiceCommand);
             console.log('Confidence: ' + event.results[0][0].confidence);
         }
+        //stop listening after 5 seconds delay
+        setTimeout(function() {
+            recognition.stop();
+            i=0;
+            console.log("Stopped");
+            voiceCommand = "";
+        }, 5000);
 }
-, 5000);
-}
-i=0;
-recognition.stop();
-voiceCommand = "";
+
   </script>
 
 </body>
