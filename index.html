@@ -329,6 +329,7 @@ function activateMicro (){
         //stop listening after 5 seconds delay
         setTimeout(function() {
             recognition.stop();
+            i=0;
             console.log("Stopped");
             voiceCommand = "";
         }, 5000);
