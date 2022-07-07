@@ -270,7 +270,7 @@ z-index: 10000;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var grammar = '#JSGF V1.0; grammar words; public <words> = alex | start | stop | schneller | langsamer | größer | kleiner';
+var grammar = '#JSGF V1.0; grammar words; public <words> = alex | start | stop | schneller | langsamer | größer | kleiner | links | rechts';
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
@@ -337,6 +337,16 @@ function activateMicro (){
             //decrease size glb object
                 factory.setAttribute('scale', {x: 0.5, y: 0.5, z: 0.5});
                 console.log("factory kleiner...");
+            }
+            else if(voiceCommand.includes("links") || voiceCommand.includes("Links")) {
+            //rotate on y axis by 45 degrees
+                factory.setAttribute('rotation', {x: 0, y: 45, z: 0});
+                console.log("factory links...");
+            }
+            else if(voiceCommand.includes("rechts") || voiceCommand.includes("Rechts")) {
+            //rotate on y axis by 45 degrees
+                factory.setAttribute('rotation', {x: 0, y: -45, z: 0});
+                console.log("factory rechts...");
             }
 
             else {
