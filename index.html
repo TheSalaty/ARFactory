@@ -339,13 +339,13 @@ function activateMicro (){
                 console.log("factory kleiner...");
             }
             else if(voiceCommand.includes("links") || voiceCommand.includes("Links")) {
-            //rotate on y axis by 45 degrees
-                factory.setAttribute('rotation', {x: 0, y: 45, z: 0});
-                console.log("factory links...");
+            //get current rotation and subtract 45 degrees to it
+            factory.setAttribute('rotation', {x: 0, y: factory.getAttribute('rotation').y - 45, z: 0});
+                console.log("factory rechts...");
             }
             else if(voiceCommand.includes("rechts") || voiceCommand.includes("Rechts")) {
-            //rotate on y axis by 45 degrees
-                factory.setAttribute('rotation', {x: 0, y: -45, z: 0});
+            //get current rotation and add 45 degrees to it
+                factory.setAttribute('rotation', {x: 0, y: factory.getAttribute('rotation').y + 45, z: 0});
                 console.log("factory rechts...");
             }
 
