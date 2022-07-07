@@ -326,8 +326,12 @@ function activateMicro (){
             //factory.setAttribute('voiceCommand', voiceCommand);
             console.log('Confidence: ' + event.results[0][0].confidence);
         }
-        recognition.stop();
-        voiceCommand = "";
+        //stop listening after 5 seconds delay
+        setTimeout(function() {
+            recognition.stop();
+            console.log("Stopped");
+            voiceCommand = "";
+        }, 5000);
 }
 
   </script>
