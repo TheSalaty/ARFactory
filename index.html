@@ -83,6 +83,7 @@
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/magnet-helpers.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-htmlmesh@1.0.1/build/aframe-html.min.js"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js" ></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
   <!-- <script src="ar-shadow-helper.js"></script>
   <script src="ar-cursor.js"></script>
@@ -120,7 +121,7 @@
       id="cameraRig"
       simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0;exclude:.navmesh-hole;"
       movement-controls="speed:0.15;camera:#head;"
-      position="-1 0 1" rotation="0 45 0" origin-on-ar-start
+      position="0 0 0" rotation="0 0 0" origin-on-ar-start
     >
       <!-- camera -->
       <a-entity id="head"
@@ -184,7 +185,8 @@
       </a-entity>
     </a-entity>
     
-    <a-entity gltf-model="#building-glb" position="-6 0 1" scale= "1 1 1" rotation="0 -50 0" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-entity>
+    <!-- <a-entity gltf-model="#building-glb" position="-6 0 1" scale= "1 1 1" rotation="0 -50 0" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-entity> -->
+
 
 
     <!-- <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
@@ -198,7 +200,7 @@
     </a-entity>
 
     <a-entity hide-on-enter-ar position="0 -0.2 0" environment="lighting:none;shadow:true;"></a-entity>
-		<a-entity rotation="0 -50 0" position="0 0 0" animation-mixer loop="once" id="factory-entity" hide-on-enter-ar>
+		<a-entity position="-1 0 -4" animation-mixer loop="once" id="factory-entity" hide-on-enter-ar>
       
       <!-- Button test -->
            
@@ -213,6 +215,7 @@
         animation-mixer="clip:*; loop:repeat;  crossFadeDuration: 1"
         ></a-gltf-model>
       </a-entity>
+      <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="-2 3 -5"></a-text>
       
 
 	</a-scene>
