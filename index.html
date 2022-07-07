@@ -263,7 +263,10 @@ var factory = document.getElementById("factory-entity");
 // Start the recognition process - when a-frame buton is clicked
 
 function activateMicro (){
+  //listeen for the start of the speech for 5 seconds
   recognition.start();
+  console.log("Started");
+  setTimeout(function() {
     console.log('Ready to receive a command.');
 
     recognition.onresult = function(event) {
@@ -324,7 +327,8 @@ function activateMicro (){
             console.log('Confidence: ' + event.results[0][0].confidence);
         }
 }
-
+, 5000);
+}
 recognition.stop();
 voiceCommand = "";
   </script>
