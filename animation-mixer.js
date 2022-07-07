@@ -63,20 +63,16 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
         action: e.action,
         direction: e.direction,
       });
-      console.log("finished");
     });
     if (this.data.clip) this.update({});
   },
 
   remove: function () {
-    console.log("remove");
     if (this.mixer) this.mixer.stopAllAction();
   },
 
   update: function (prevData) {
-    console.log("update");
     if (!prevData) return;
-    console.log("update 2nd");
 
     const data = this.data;
     const changes = AFRAME.utils.diff(data, prevData);
@@ -87,28 +83,22 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
       if (data.clip) this.playAction();
       return;
     }
-    console.log("update mid");
     // Otherwise, modify running actions.
     this.activeActions.forEach((action) => {
-      console.log("modify running actions");
       if ("duration" in changes && data.duration) {
         action.setDuration(data.duration);
-        console.log("durations end");
       }
       if ("clampWhenFinished" in changes) {
         action.clampWhenFinished = data.clampWhenFinished;
-        console.log("clamp end");
       }
       if ("loop" in changes || "repetitions" in changes) {
         action.setLoop(LoopMode[data.loop], data.repetitions);
-        console.log("loop & repetitions end");
       }
       if ("timeScale" in changes) {
         action.setEffectiveTimeScale(data.timeScale);
-        console.log("time scale end");
       }
     });
-    console.log("update end");
+
   },
 
   stopAction: function () {
@@ -122,7 +112,7 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
   },
 
   playAction: function () {
-    console.log("playAction");
+
     if (!this.mixer) return;
 
     const model = this.model,
@@ -149,7 +139,6 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
         this.mixer.setTime(data.startFrame / 1000);
       }
     }
-    console.log("play end");
   },
 
   tick: function (t, dt) {

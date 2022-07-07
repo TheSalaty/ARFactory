@@ -200,7 +200,7 @@
     </a-entity>
 
     <a-entity hide-on-enter-ar position="0 -0.2 0" environment="lighting:none;shadow:true;"></a-entity>
-		<a-entity position="-1 0 -4" animation-mixer loop="once" id="factory-entity" hide-on-enter-ar>
+		<a-entity rotation="0 -50 0" position="0 0 0" animation-mixer loop="once" id="factory-entity" hide-on-enter-ar>
       
       <!-- Button test -->
            
@@ -214,8 +214,8 @@
         shadow="cast:false;receive:true;"
         animation-mixer="clip:*; loop:repeat;  crossFadeDuration: 1"
         ></a-gltf-model>
+        <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="0 3 0"></a-text>
       </a-entity>
-      <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="-2 3 -5"></a-text>
       
 
 	</a-scene>
