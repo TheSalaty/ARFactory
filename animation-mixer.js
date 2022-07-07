@@ -44,10 +44,19 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
 
   load: function (model) {
     const el = this.el;
+    var count = 0;
+    var text = document.querySelector('a-text');
     this.model = model;
     this.mixer = new THREE.AnimationMixer(model);
     this.mixer.addEventListener("loop", (e) => {
       el.emit("animation-loop", { action: e.action, loopDelta: e.loopDelta });
+      if(e.action._clip.name == "SchraubeEnd") {
+        count++;
+        text.setAttribute("value", "Produziert: " + count)
+        console.log("COUNT "+count);
+        
+      }
+      console.log(e.action._clip.name);
     });
     this.mixer.addEventListener("finished", (e) => {
       el.emit("animation-finished", {
@@ -74,7 +83,6 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
       if (data.clip) this.playAction();
       return;
     }
-
     // Otherwise, modify running actions.
     this.activeActions.forEach((action) => {
       if ("duration" in changes && data.duration) {
@@ -90,6 +98,7 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
         action.setEffectiveTimeScale(data.timeScale);
       }
     });
+
   },
 
   stopAction: function () {
@@ -103,6 +112,7 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
   },
 
   playAction: function () {
+
     if (!this.mixer) return;
 
     const model = this.model,
@@ -116,7 +126,7 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
     for (let clip, i = 0; (clip = clips[i]); i++) {
       if (clip.name.match(re)) {
         const action = this.mixer.clipAction(clip, model);
-
+        
         action.enabled = true;
         action.clampWhenFinished = data.clampWhenFinished;
         if (data.duration) action.setDuration(data.duration);
@@ -133,6 +143,7 @@ module.exports = AFRAME.registerComponent("animation-mixer", {
 
   tick: function (t, dt) {
     if (this.mixer && !isNaN(dt)) this.mixer.update(dt / 1000);
+    // console.log("tick");
   },
 });
 

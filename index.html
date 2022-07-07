@@ -21,7 +21,10 @@
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/handy-controls.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handy-work@3.1.9/build/magnet-helpers.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-htmlmesh@1.0.1/build/aframe-html.min.js"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js"></script>
+
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js" ></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+
 
   <!-- <script src="ar-shadow-helper.js"></script>
   <script src="ar-cursor.js"></script>
@@ -70,9 +73,13 @@
     </a-assets>
 
 
+    <a-entity
+      id="cameraRig"
+      simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0;exclude:.navmesh-hole;"
+      movement-controls="speed:0.15;camera:#head;"
+      position="0 0 0" rotation="0 0 0" origin-on-ar-start
+    >
 
-    <a-entity id="cameraRig" simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0;exclude:.navmesh-hole;"
-      movement-controls="speed:0.15;camera:#head;" position="-1 0 1" rotation="0 45 0" origin-on-ar-start>
       <!-- camera -->
       <a-entity id="head"
         camera="near:0.01;"
@@ -159,6 +166,7 @@
     </a-entity>
     </a-entity>
 
+
     <a-entity id="factory-entity" gltf-model="#building-glb" position="-6 0 1" scale="1 1 1" rotation="0 -50 0"
       animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
 
@@ -181,7 +189,18 @@
 
       <!-- <a-gltf-model id="clock" shadow="receive:true;" src="#clock-gltf" position="-5 0 1.8" rotation="0 51 0" physx-body-from-model="type:dynamic;mass:15;"></a-gltf-model>
       <a-gltf-model class="navmesh" src="#navmesh-glb" visible="false"></a-gltf-model> -->
-    </a-entity>
+
+      <a-gltf-model src="#building-glb"
+        id="building"
+        depthwrite="true"
+        window-replace="Glass"
+        no-tonemapping="Light"
+        shadow="cast:false;receive:true;"
+        animation-mixer="clip:*; loop:repeat;  crossFadeDuration: 1"
+        ></a-gltf-model>
+        <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="0 3 0"></a-text>
+      </a-entity>
+
 
     <!-- Diagramm anzeigen/ ausblenden-->
 
