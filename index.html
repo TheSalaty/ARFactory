@@ -167,8 +167,12 @@
     </a-entity>
 
 
-    <a-entity id="factory-entity" gltf-model="#building-glb" position="-6 0 1" scale="1 1 1" rotation="0 -50 0"
-      animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1"></a-entity>
+    <a-entity id="factory-entity" gltf-model="#building-glb"  depthwrite="true"
+    window-replace="Glass"
+    no-tonemapping="Light" position="-6 0 1" scale="1 1 1" rotation="0 -50 0"
+      animation-mixer="clip:*; loop:2; timeScale: 0; crossFadeDuration: 1">
+      <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="0 3 0"></a-text>
+    </a-entity>
 
     <!-- <a-entity id="my-ar-objects" position="-6 0 1" rotation="0 -50 0">
       <a-gltf-model id="factory" src="assets/Modellfabrik.glb" animation-mixer="clip:*; loop:2; timeScale: 1; crossFadeDuration: 1"></a-gltf-model>
@@ -190,7 +194,7 @@
       <!-- <a-gltf-model id="clock" shadow="receive:true;" src="#clock-gltf" position="-5 0 1.8" rotation="0 51 0" physx-body-from-model="type:dynamic;mass:15;"></a-gltf-model>
       <a-gltf-model class="navmesh" src="#navmesh-glb" visible="false"></a-gltf-model> -->
 
-      <a-gltf-model src="#building-glb"
+      <!-- <a-gltf-model src="#building-glb"
         id="building"
         depthwrite="true"
         window-replace="Glass"
@@ -199,7 +203,7 @@
         animation-mixer="clip:*; loop:repeat;  crossFadeDuration: 1"
         ></a-gltf-model>
         <a-text look-at="[camera]" value="Produziert: 0" scale="3 3 3" position="0 3 0"></a-text>
-      </a-entity>
+      </a-entity> -->
 
 
     <!-- Diagramm anzeigen/ ausblenden-->
