@@ -279,7 +279,7 @@ function activateMicro (){
         // The second [0] returns the SpeechRecognitionAlternative at position 0.
         // We then return the transcript property of the SpeechRecognitionAlternative object
         var voiceCommand = event.results[i][0].transcript;
-        
+        i++;
         //diagnostic.textContent = 'Result received: ' + voiceCommand + '.';
         console.log("voice command " + voiceCommand);
         if(voiceCommand.includes("Alex") || voiceCommand.includes("alex")){
@@ -329,6 +329,7 @@ function activateMicro (){
 }
 , 5000);
 }
+i=0;
 recognition.stop();
 voiceCommand = "";
   </script>
